@@ -19,7 +19,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
         // 确保在服务器端执行，且在tick结束时执行以避免冲突
-        if (event.phase == TickEvent.Phase.END && !event.player.level().isClientSide) {
+        if (event.phase == TickEvent.Phase.END && !event.player.getCommandSenderWorld().isClientSide) {
             Player player = event.player;
 
             // 检查玩家是否有“健胃消食”效果
@@ -62,7 +62,7 @@ public class ModEvents {
     @SubscribeEvent
     public static void onDrinkWater(LivingEntityUseItemEvent.Finish event) {
         // 确认是玩家，且不是在客户端
-        if (event.getEntity() instanceof Player player && !player.level().isClientSide) {
+        if (event.getEntity() instanceof Player player && !player.getCommandSenderWorld().isClientSide) {
             // 确认喝的是水瓶
             if (event.getItem().is(Items.POTION) && PotionUtils.getPotion(event.getItem()) == Potions.WATER) {
                 // 如果玩家有“健胃消食”效果，则移除它
