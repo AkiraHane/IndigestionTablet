@@ -20,7 +20,7 @@ public class ModItems {
                     .alwaysEat() // 饱食度满时也能吃
                     .fast()      // 快速吃完
                     // 吃完后给予10分钟 (10 * 60 * 20 = 12000 ticks) 的健胃消食I效果
-                    .effect(() -> new MobEffectInstance(ModEffects.DIGESTION_AID.get(), 12000, 0), 1.0F)
+                    .effect(() -> new MobEffectInstance(ModEffects.DIGESTION_AID.get(), 12000, 0, false, false), 1.0F)
                     .build())));
 
     public static void register(IEventBus eventBus) {
