@@ -1,0 +1,6 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "indigestion_tablet:item/indigestion_tablet"
+  }
+}
